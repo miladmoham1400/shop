@@ -10,7 +10,7 @@
                             <h3 class="box-title">لیست دسته بندی ها :</h3>
                         </div>
                         <div>
-                            <a href="/adminpanel/categories/create" class="btn btn-success">ساخت یه دسته بندی جدید</a>
+                            <a href="{{ route('categories.create') }}" class="btn btn-success">ساخت یه دسته بندی جدید</a>
                         </div>
                     </div>
                     <!-- /.box-header -->
@@ -36,10 +36,10 @@
                                         </td>
                                         <td>{{ $category->title }}</td>
                                         <td>
-                                            <a href="/adminpanel/categories/{{ $category->id }}/edit" class="btn btn-warning btn-sm">ویرایش</a>
+                                            <a href="{{ route('categories.edit' , $category) }}" class="btn btn-warning btn-sm">ویرایش</a>
                                         </td>
                                         <td>
-                                            <form action="/adminpanel/categories/{{ $category->id }}" method="post" id="{{ $category->id }}">
+                                            <form action="{{ route('categories.destroy' , $category) }}" method="post" id="{{ $category->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>

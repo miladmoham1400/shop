@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\NewCategoryRequest;
-use App\Models\category;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('admin.categories.index' , [
-            'categories' => category::all()
+            'categories' => Category::all()
         ]);
     }
 
@@ -52,7 +52,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\category  $category
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function show(category $category)
@@ -70,7 +70,7 @@ class CategoryController extends Controller
     {
         return view('admin.categories.edit' , [
             'category' => $category,
-            'categories' => category::all()
+            'categories' => Category::all()
         ]);
     }
 
@@ -99,16 +99,18 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        if ($category->category_id) {
-            dd($category->category_id);
-            $category->delete();
-        }
-        else {
-            dd(category::query()->where('category_id' , $category->category_id)->delete());
-            category::query()->where('category_id' , $category->category_id)->delete();
-            $category->delete();
+//        if ($category->category_id) {
+//            dd($category->category_id);
+//            $category->delete();
+//        }
+//        else {
+//            dd(category::query()->where('category_id' , $category->category_id)->delete());
+//            category::query()->where('category_id' , $category->category_id)->delete();
+//            $category->delete();
+//
+//        }
 
-        }
+        $category->delete();
 
         return redirect('/adminpanel/categories');
     }

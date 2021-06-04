@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Client\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.home');
+Route::get('/welcome', function () {
+    return view('welcome');
 });
 
-Route::get('/adminpanel/categories' , [CategoryController::class , 'index']);
-Route::get('/adminpanel/categories/create' , [CategoryController::class , 'create']);
-Route::post('/adminpanel/categories/store' , [CategoryController::class , 'store']);
-Route::get('/adminpanel/categories/{category}/edit' , [CategoryController::class , 'edit']);
-Route::patch('/adminpanel/categories/{category}/update' , [CategoryController::class , 'update']);
-Route::delete('/adminpanel/categories/{category}' , [CategoryController::class , 'destroy']);
+Route::get('/', [HomeController::class , 'index']);
+
+Route::prefix('/adminpanel')->group(function () {
+    Route::resource('categories', CategoryController::class)->except('show');
+});

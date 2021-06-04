@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body  col-md-6">
-                        <form action="/adminpanel/categories/{{$category->id}}/update" method="post">
+                        <form action="{{ route('categories.update' , $category) }}" method="post">
                             @csrf
                             @method('PATCH')
                             <!-- text input -->

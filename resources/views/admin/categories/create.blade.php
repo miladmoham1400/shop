@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body  col-md-6">
-                        <form action="/adminpanel/categories/store" method="post">
+                        <form action="{{ route('categories.store') }}" method="post">
                             @csrf
                             <!-- text input -->
                             <div class="form-group">

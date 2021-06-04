@@ -522,8 +522,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="/adminpanel/categories"><i class="mdi mdi-toggle-switch-off"></i>لیست دسته بندی ها</a></li>
-                        <li><a href="/adminpanel/categories/create"><i class="mdi mdi-toggle-switch-off"></i>ایجاد دسته بندی</a></li>
+                        <li><a href="{{ route('categories.index') }}"><i class="mdi mdi-toggle-switch-off"></i>لیست دسته بندی ها</a></li>
+                        <li><a href="{{ route('categories.create') }}"><i class="mdi mdi-toggle-switch-off"></i>ایجاد دسته بندی</a></li>
                     </ul>
                 </li>
 
